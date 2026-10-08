@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleSync | Digital Wardrobe</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        Style<span>Sync</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#wardrobe">Wardrobe</a>
+        <a href="#outfit">Outfit</a>
+        <a href="#planner">Planner</a>
+    </nav>
+
+    <button id="themeBtn" class="theme-btn">🌙</button>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="tag">DIGITAL WARDROBE</p>
+
+        <h1>
+            Your clothes.
+            <br>
+            Your <span>style.</span>
+        </h1>
+
+        <p class="hero-description">
+            Organize your wardrobe, create outfits and plan
+            what you're going to wear.
+        </p>
+
+        <a href="#wardrobe" class="primary-btn">
+            Open Wardrobe
+        </a>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="hanger">
+            👕
+        </div>
+
+        <h2>StyleSync</h2>
+
+        <p>
+            Organize • Create • Wear
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATISTICS ================= -->
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">👕</div>
+
+        <h2 id="totalItems">0</h2>
+
+        <p>Total Items</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">👔</div>
+
+        <h2 id="topCount">0</h2>
+
+        <p>Tops</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">👖</div>
+
+        <h2 id="bottomCount">0</h2>
+
+        <p>Bottoms</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">👟</div>
+
+        <h2 id="shoeCount">0</h2>
+
+        <p>Shoes</p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WARDROBE ================= -->
+
+<section id="wardrobe" class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="tag">MY COLLECTION</p>
+
+            <h2>My Wardrobe</h2>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="openModal()">
+
+            + Add Clothing
+
+        </button>
+
+    </div>
+
+
+    <div class="controls">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search your clothes..."
+            oninput="displayWardrobe()"
+        >
+
+
+        <select
+            id="categoryFilter"
+            onchange="displayWardrobe()">
+
+            <option value="all">
+                All Categories
+            </option>
+
+            <option value="top">
+                Tops
+            </option>
+
+            <option value="bottom">
+                Bottoms
+            </option>
+
+            <option value="shoes">
+                Shoes
+            </option>
+
+            <option value="accessory">
+                Accessories
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        id="wardrobeGrid"
+        class="wardrobe-grid">
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= OUTFIT CREATOR ================= -->
+
+<section
+    id="outfit"
+    class="section outfit-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="tag">STYLE CREATOR</p>
+
+            <h2>Create Your Outfit</h2>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="generateRandomOutfit()">
+
+            🎲 Random Outfit
+
+        </button>
+
+    </div>
+
+
+
+    <!-- OUTFIT -->
+
+    <div class="outfit-builder">
+
+
+        <!-- TOP -->
+
+        <div class="outfit-slot">
+
+            <div
+                id="outfitTop"
+                class="empty-slot">
+
+                <div class="big-emoji">
+                    👕
+                </div>
+
+                <p>Select Top</p>
+
+                <button
+                    class="choose-btn"
+                    onclick="chooseItem('top')">
+
+                    Choose Top
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTTOM -->
+
+        <div class="outfit-slot">
+
+            <div
+                id="outfitBottom"
+                class="empty-slot">
+
+                <div class="big-emoji">
+                    👖
+                </div>
+
+                <p>Select Bottom</p>
+
+                <button
+                    class="choose-btn"
+                    onclick="chooseItem('bottom')">
+
+                    Choose Bottom
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SHOES -->
+
+        <div class="outfit-slot">
+
+            <div
+                id="outfitShoes"
+                class="empty-slot">
+
+                <div class="big-emoji">
+                    👟
+                </div>
+
+                <p>Select Shoes</p>
+
+                <button
+                    class="choose-btn"
+                    onclick="chooseItem('shoes')">
+
+                    Choose Shoes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SELECTION -->
+
+    <div
+        id="selectionArea"
+        class="selection-area">
+
+    </div>
+
+
+
+    <!-- ACTIONS -->
+
+    <div class="outfit-actions">
+
+        <button
+            class="secondary-btn"
+            onclick="clearOutfit()">
+
+            Clear
+
+        </button>
+
+
+        <button
+            class="primary-btn"
+            onclick="saveCurrentOutfit()">
+
+            ❤️ Save Outfit
+
+        </button>
+
+    </div>
+
+
+
+    <!-- SAVED OUTFITS -->
+
+    <div
+        id="savedOutfits"
+        class="saved-outfits">
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= WEEKLY PLANNER ================= -->
+
+<section
+    id="planner"
+    class="section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="tag">WEEKLY PLANNER</p>
+
+            <h2>Plan Your Week</h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="planner">
+
+        <div class="day">
+
+            <h3>Monday</h3>
+
+            <select id="Monday"
+                onchange="savePlan('Monday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Tuesday</h3>
+
+            <select id="Tuesday"
+                onchange="savePlan('Tuesday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Wednesday</h3>
+
+            <select id="Wednesday"
+                onchange="savePlan('Wednesday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Thursday</h3>
+
+            <select id="Thursday"
+                onchange="savePlan('Thursday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Friday</h3>
+
+            <select id="Friday"
+                onchange="savePlan('Friday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Saturday</h3>
+
+            <select id="Saturday"
+                onchange="savePlan('Saturday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="day">
+
+            <h3>Sunday</h3>
+
+            <select id="Sunday"
+                onchange="savePlan('Sunday')">
+
+                <option value="">
+                    Choose Outfit
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>StyleSync</h2>
+
+    <p>
+        Organize. Create. Wear.
+    </p>
+
+    <p class="copyright">
+        © 2026 StyleSync
+    </p>
+
+</footer>
+
+
+
+<!-- ================= ADD ITEM MODAL ================= -->
+
+<div
+    id="modal"
+    class="modal">
+
+
+    <div class="modal-content">
+
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+
+            ×
+
+        </button>
+
+
+        <h2>Add Clothing</h2>
+
+
+        <form id="clothingForm">
+
+
+            <label>
+                Clothing Name
+            </label>
+
+            <input
+                type="text"
+                id="itemName"
+                placeholder="Example: Black T-Shirt"
+                required
+            >
+
+
+
+            <label>
+                Category
+            </label>
+
+            <select
+                id="itemCategory"
+                required>
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="top">
+                    Top
+                </option>
+
+                <option value="bottom">
+                    Bottom
+                </option>
+
+                <option value="shoes">
+                    Shoes
+                </option>
+
+                <option value="accessory">
+                    Accessory
+                </option>
+
+            </select>
+
+
+
+            <label>
+                Color
+            </label>
+
+            <input
+                type="text"
+                id="itemColor"
+                placeholder="Example: Black"
+                required
+            >
+
+
+
+            <label>
+                Clothing Image
+            </label>
+
+            <input
+                type="file"
+                id="itemImage"
+                accept="image/*"
+                required
+            >
+
+
+            <!-- IMAGE PREVIEW -->
+
+            <div
+                id="imagePreview"
+                class="image-preview">
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="primary-btn add-btn">
+
+                Add To Wardrobe
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

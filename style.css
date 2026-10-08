@@ -1,0 +1,983 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f5f2;
+    color: #202020;
+    transition: 0.3s;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    height: 75px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #8b5cf6;
+}
+
+.theme-btn {
+    border: none;
+    background: #f1f1f1;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 570px;
+
+    padding: 90px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 80px);
+
+    line-height: 1;
+
+    margin: 15px 0 25px;
+}
+
+.hero h1 span {
+    color: #8b5cf6;
+}
+
+.tag {
+    color: #8b5cf6;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+}
+
+.hero-description {
+    max-width: 520px;
+
+    color: #666;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.primary-btn {
+    background: #8b5cf6;
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 21px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    display: inline-block;
+}
+
+.primary-btn:hover {
+    background: #7043d6;
+}
+
+.hero-visual {
+
+    width: 330px;
+    height: 380px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e8ddff,
+            #ffffff
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    box-shadow: 0 20px 50px #ddd;
+}
+
+.hanger {
+    font-size: 110px;
+
+    margin-bottom: 20px;
+}
+
+.hero-visual p {
+    color: #777;
+
+    margin-top: 8px;
+}
+
+
+
+/* ================= STATS ================= */
+
+.stats {
+    padding: 20px 8% 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    border: 1px solid #eee;
+}
+
+.stat-icon {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.stat-card h2 {
+    font-size: 35px;
+
+    color: #8b5cf6;
+}
+
+.stat-card p {
+    color: #777;
+
+    margin-top: 7px;
+}
+
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    padding: 80px 8%;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 40px;
+
+    margin-top: 8px;
+}
+
+
+
+/* ================= CONTROLS ================= */
+
+.controls {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.controls input,
+.controls select {
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 14px;
+}
+
+.controls input {
+    width: 300px;
+}
+
+
+
+/* ================= WARDROBE ================= */
+
+.wardrobe-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(210px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.item-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    border: 1px solid #eee;
+
+    transition: 0.2s;
+}
+
+.item-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px #ddd;
+}
+
+.item-image {
+
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #eeeeee;
+}
+
+.item-info {
+
+    padding: 18px;
+}
+
+.item-info h3 {
+
+    margin-bottom: 8px;
+}
+
+.item-info p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.card-buttons {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.card-buttons button {
+
+    flex: 1;
+
+    padding: 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.use-btn {
+
+    background: #eee;
+}
+
+.delete-btn {
+
+    background: #ffe1e1;
+
+    color: #c00000;
+}
+
+
+
+/* ================= OUTFIT ================= */
+
+.outfit-section {
+
+    background: #eeeaff;
+}
+
+.outfit-builder {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.outfit-slot {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-slot {
+
+    width: 100%;
+}
+
+.big-emoji {
+
+    font-size: 80px;
+
+    margin-bottom: 10px;
+}
+
+.empty-slot p {
+
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+.choose-btn {
+
+    padding: 10px 17px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #8b5cf6;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.choose-btn:hover {
+
+    background: #7043d6;
+}
+
+.selected-item {
+
+    width: 100%;
+
+    text-align: center;
+}
+
+.selected-item img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+}
+
+.selected-item p {
+
+    font-weight: bold;
+
+    margin: 12px 0;
+}
+
+
+
+/* ================= SELECTION ================= */
+
+.selection-area {
+
+    max-width: 1000px;
+
+    margin: 45px auto 0;
+}
+
+.selection-area h3 {
+
+    margin-bottom: 20px;
+}
+
+.selection-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(160px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+.selection-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    transition: 0.2s;
+}
+
+.selection-card:hover {
+
+    border-color: #8b5cf6;
+
+    transform: translateY(-4px);
+}
+
+.selection-card img {
+
+    width: 100%;
+
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.selection-card h4 {
+
+    margin-top: 10px;
+}
+
+.selection-card p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+
+/* ================= OUTFIT ACTIONS ================= */
+
+.outfit-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.secondary-btn {
+
+    padding: 13px 21px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+
+
+
+/* ================= SAVED OUTFITS ================= */
+
+.saved-outfits {
+
+    max-width: 900px;
+
+    margin: 50px auto 0;
+}
+
+.saved-outfits h3 {
+
+    margin-bottom: 20px;
+}
+
+.saved-card {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.saved-card p {
+
+    color: #777;
+
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+
+
+/* ================= PLANNER ================= */
+
+.planner {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.day {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #eee;
+}
+
+.day h3 {
+
+    margin-bottom: 15px;
+}
+
+.day select {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    background: white;
+}
+
+
+
+/* ================= FOOTER ================= */
+
+footer {
+
+    background: #17151c;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+footer p {
+
+    color: #aaa;
+
+    margin-top: 10px;
+}
+
+.copyright {
+
+    margin-top: 20px;
+}
+
+
+
+/* ================= MODAL ================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 200;
+
+    padding: 20px;
+}
+
+.modal-content {
+
+    background: white;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    position: relative;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+
+    margin-bottom: 25px;
+}
+
+.close-btn {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.modal-content label {
+
+    display: block;
+
+    margin: 15px 0 7px;
+
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+}
+
+.add-btn {
+
+    margin-top: 25px;
+
+    width: 100%;
+}
+
+
+
+/* ================= IMAGE PREVIEW ================= */
+
+.image-preview {
+
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+.image-preview img {
+
+    max-width: 180px;
+
+    max-height: 180px;
+
+    border-radius: 12px;
+
+    object-fit: cover;
+}
+
+
+
+/* ================= DARK MODE ================= */
+
+body.dark {
+
+    background: #121212;
+
+    color: #eee;
+}
+
+body.dark header,
+body.dark .stat-card,
+body.dark .item-card,
+body.dark .outfit-slot,
+body.dark .day,
+body.dark .modal-content,
+body.dark .saved-card,
+body.dark .selection-card {
+
+    background: #1e1e1e;
+
+    color: #eee;
+}
+
+body.dark nav a {
+
+    color: #ddd;
+}
+
+body.dark .hero-visual {
+
+    background:
+        linear-gradient(
+            145deg,
+            #282033,
+            #181818
+        );
+
+    box-shadow: none;
+}
+
+body.dark .hero-description,
+body.dark .item-info p,
+body.dark .hero-visual p,
+body.dark .empty-slot p {
+
+    color: #aaa;
+}
+
+body.dark .controls input,
+body.dark .controls select,
+body.dark .day select,
+body.dark .modal-content input,
+body.dark .modal-content select {
+
+    background: #292929;
+
+    color: white;
+
+    border-color: #444;
+}
+
+body.dark .secondary-btn,
+body.dark .use-btn {
+
+    background: #292929;
+
+    color: white;
+
+    border-color: #444;
+}
+
+body.dark .outfit-section {
+
+    background: #191523;
+}
+
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    header {
+
+        padding: 0 5%;
+    }
+
+    nav {
+
+        display: none;
+    }
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 60px 6%;
+    }
+
+    .hero-visual {
+
+        width: 100%;
+
+        max-width: 330px;
+    }
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        padding: 20px 6%;
+    }
+
+    .section {
+
+        padding: 60px 6%;
+    }
+
+    .section-heading {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .controls {
+
+        flex-direction: column;
+    }
+
+    .controls input {
+
+        width: 100%;
+    }
+
+    .outfit-builder {
+
+        grid-template-columns: 1fr;
+    }
+
+    .planner {
+
+        grid-template-columns: 1fr;
+    }
+}
